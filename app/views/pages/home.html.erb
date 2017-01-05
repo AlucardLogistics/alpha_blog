@@ -1,0 +1,35 @@
+<!--<div id='menu' style = 'position:absolute; width:100%; top:0; left:0; height:7%'></div>-->
+<div id='header' style='position:absolute; width:100%; top:0%; left:0; height:30%; border-bottom:2px solid black'>
+  <%= image_tag 'blog_header.jpg', style: "position:relative; top:0; left:0; width:100%; height:100%" %>
+  <h1 style = 'position:absolute; top:25%; left:40%; width:100%'>Welcome to Alpha Blog</h1>
+   <p style = "position:absolute; top:45%; left:42%; width:100%">
+    Home | <%= link_to 'About', about_path  %> | Thoughts | Ruby | Relax
+  </p>
+</div>
+
+<div id='content' style='position:absolute; width:100%; top:40%; left:0;'>
+  
+<br />
+<p  style = 'font-size:25px'>
+  Welcome to my blog:
+</p>
+
+<div id='wrapper' style ='overflow: hidden;'>
+  <div  style = 'float:left; width: 40%;  margin:4% 2%; padding-bottom: 100%; margin-bottom: -100%;'>
+    To create your first image blog post, click here and select 'Add & Edit Posts' > All Posts > 
+    This is the title of your first image post.Great looking images make your blog posts more visually compelling for your audience, 
+    and encourage readers to keep coming back.
+    To create your first image blog post, click here and select 'Add & Edit Posts' > All Posts > 
+    This is the title of your first image post.Great looking images make your blog posts more visually compelling for your audience, 
+    and encourage readers to keep coming back.
+    To create your first image blog post, click here and select 'Add & Edit Posts' > All Posts > 
+    This is the title of your first image post.Great looking images make your blog posts more visually compelling for your audience, 
+    and encourage readers to keep coming back.
+  </div>
+  
+  <div  style = 'float:left; width: 30%;  margin:4% 2%; padding-bottom: 100%; margin-bottom: -100%;'>
+     <%= image_tag 'profile_about.jpg', style: "width:80%; margin:0% 10%" %>
+  </div>
+  
+</div>
+
