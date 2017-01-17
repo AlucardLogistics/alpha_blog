@@ -50,6 +50,15 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
   
+  #deletes the current article
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    
+    flash[:notice] = "Article was sucessfully deleted"
+    redirect_to articles_path
+  end
+  
   #private function the gives the params needed to identify the article we want to edit or create
   private
     def article_params
