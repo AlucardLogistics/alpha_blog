@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   
+  #use the method :set_article from private only on those methods before they do anything else 
+  before_action :set_article, only: [:edit, :update, :show, :destroy]
+  
   #for the page with all the articles
   def index
     #new variable for all the articles
@@ -13,7 +16,7 @@ class ArticlesController < ApplicationController
   
   #edit existing article
   def edit
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id])
   end
   
   #create the new article and saving it to the db
@@ -36,7 +39,7 @@ class ArticlesController < ApplicationController
   
   #update the existing article from edit and save it to the db
   def update
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:notice] = "Articlae succesfully updated."
       redirect_to article_path(@article)
@@ -47,12 +50,12 @@ class ArticlesController < ApplicationController
   
   #show the current article on the web app
   def show
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id])
   end
   
   #deletes the current article
   def destroy
-    @article = Article.find(params[:id])
+    #@article = Article.find(params[:id])
     @article.destroy
     
     flash[:notice] = "Article was sucessfully deleted"
@@ -61,8 +64,13 @@ class ArticlesController < ApplicationController
   
   #private function the gives the params needed to identify the article we want to edit or create
   private
+    
+    def set_article
+      @article = Article.find(params[:id])
+    end
+  
     def article_params
-      params.require(:article).permit(:title, :description)
+     params.require(:article).permit(:title, :description)
     end
   
 end
