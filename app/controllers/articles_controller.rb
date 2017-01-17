@@ -1,9 +1,22 @@
 class ArticlesController < ApplicationController
   
+  #for the page with all the articles
+  def index
+    #new variable for all the articles
+    @articles = Article.all
+  end
+  
+  #create new article
   def new
     @article = Article.new
   end
   
+  #edit existing article
+  def edit
+    @article = Article.find(params[:id])
+  end
+  
+  #create the new article and saving it to the db
   def create
     
     @article = Article.new(article_params)
@@ -21,10 +34,23 @@ class ArticlesController < ApplicationController
     
   end
   
+  #update the existing article from edit and save it to the db
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      flash[:notice] = "Articlae succesfully updated."
+      redirect_to article_path(@article)
+    else
+      render 'edit'
+    end
+  end
+  
+  #show the current article on the web app
   def show
     @article = Article.find(params[:id])
   end
   
+  #private function the gives the params needed to identify the article we want to edit or create
   private
     def article_params
       params.require(:article).permit(:title, :description)
