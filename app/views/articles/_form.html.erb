@@ -1,18 +1,11 @@
-<% if @article.errors.any? %>
-<h4>So you have some errors and can't create the article</h4>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
+<!-- loading _errors.html.erb and declaring the generiv var obj as an @article -->
+<%= render 'shared/errors', obj: @article %>
 <div class="row">
   <div class="col-xs-12">
 
     <%= form_for(@article, :html => {class: "form-horizontal", role: "form"}) do |f| %>
     
-      <div class="form-group" style="margin-top: 5%; ">
+      <div class="form-group">
         <div class="control-label col-sm-1">
           <%= f.label :title %>
         </div>

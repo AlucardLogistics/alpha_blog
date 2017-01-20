@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
       #render plain: params[:article].inspect
       #flash[:notice] to create an informational message for the user 
       #it will be displayed on every page using the html wrapper in views/layouts/application.html.erb
-      flash[:notice] = "Article was succesfully created."
+      flash[:success] = "Article was succesfully created."
       redirect_to article_path(@article)
     else
       #renders a new article.new page
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
   def update
     #@article = Article.find(params[:id])
     if @article.update(article_params)
-      flash[:notice] = "Articlae succesfully updated."
+      flash[:success] = "Articlae succesfully updated."
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
     
     
     redirect_to articles_path
-    flash[:notice] = "Article was sucessfully deleted"
+    flash[:danger] = "Article was deleted."
   end
   
   #private function the gives the params needed to identify the article we want to edit or create
