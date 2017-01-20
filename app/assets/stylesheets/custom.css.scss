@@ -19,13 +19,11 @@ $navbar-default-bg: rgba(192,192,192, 0.2);
 
 
 .center {
-  //top: 35%;
   text-align: center;
   
 }
 
 .jumbotron {
-  //position: absolute;
   background-image: asset-url('aPetStoryBg.jpg');
   background-color: #fff;
   background-size: 100% 80%;
@@ -53,7 +51,7 @@ $navbar-default-bg: rgba(192,192,192, 0.2);
 }
 
 .btn-xlarge:active:focus {
-  background-color: gray !important;
+  background-color: gray;
   color: black;
 }
 
@@ -69,7 +67,7 @@ $navbar-default-bg: rgba(192,192,192, 0.2);
 }
 
 .btn-login:active:focus {
-  background-color: gray !important;
+  background-color: gray;
   color: black;
 }
 
@@ -92,4 +90,8 @@ $navbar-default-bg: rgba(192,192,192, 0.2);
   float: left;
   margin-right: 15px;
   margin-top: 15px;
+}
+
+.page-title {
+  margin-top: 10%;
 }

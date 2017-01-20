@@ -58,8 +58,9 @@ class ArticlesController < ApplicationController
     #@article = Article.find(params[:id])
     @article.destroy
     
-    flash[:notice] = "Article was sucessfully deleted"
+    
     redirect_to articles_path
+    flash[:notice] = "Article was sucessfully deleted"
   end
   
   #private function the gives the params needed to identify the article we want to edit or create
