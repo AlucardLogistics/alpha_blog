@@ -37,8 +37,8 @@ body {
 
 .jumbotron {
   background-color: rgba(0,0,0,0);
-  background-size: 100% 80%;
-  background-repeat: no-repeat;
+  //background-size: 100% 80%;
+  //background-repeat: no-repeat;
   background-position: center bottom;
   margin-top: 0%;
   height: 100px;
@@ -87,6 +87,16 @@ body {
 .well {
    background-color: rgba(150,150,150,0.3);
    box-shadow: 10px 10px 30px #888888;
+}
+
+.about-me {
+  background-color: rgba(150,150,150,0.4);
+  box-shadow: 10px 10px 30px #888888;
+}
+
+.about-me p {
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .article-actions {

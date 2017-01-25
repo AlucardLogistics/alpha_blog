@@ -1,23 +1,29 @@
-
-<h1 style = 'position:absolute; width:100%; top:10%; left:30%; font-size:80px'>
-  About me
-</h1>
-
-<div id='wrapper' style = 'position: relative; width: 100%; left: 15%; top: 50px; display: flex'>
-<div id='about_text' style = 'float:left; width: 30%;  margin:4% 2%;'>
-  <p style='font-size:1.2em'>
-    &nbsp;&nbsp; I'm a paragraph. Click here to add your own text and edit me. 
-  <br /><br />
-    &nbsp;&nbsp; It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-    Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.
-  <br /><br />
-    &nbsp;&nbsp; This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide.
-  <br /><br />
-    &nbsp;&nbsp; Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</p>
+<div class="jumbotron center">
+  <h1>About me</h1>
 </div>
-<div id='about_photo' style = 'float:left; width: 30%;'>
-   <%= image_tag 'profile_about.jpg', style: "width:80%; height:50%; margin:36% 10%" %>
-</div>
+<br />  <br />  <br />
+<div class="row">
+  <div class=" well col-xs-6 col-xs-offset-0 about-me">
+    <p>
+      &nbsp;&nbsp; I'm a paragraph. Click here to add your own text and edit me. 
+      <br /><br />
+      &nbsp;&nbsp; It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
+      Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.
+      <br /><br />
+      &nbsp;&nbsp; This is a great space to write long text about your company and your services. 
+        You can use this space to go into a little more detail about your company. Talk about your team and what services you provide.
+      <br /><br />
+      &nbsp;&nbsp; Tell your visitors the story of how you came up with the idea for your business and what
+        makes you different from your competitors. Make your company stand out and show your visitors who you are.
+      <br /><br />
+      &nbsp;&nbsp; Tell your visitors the story of how you came up with the idea for your business 
+        and what makes you different from your competitors. Make your company stand out and show your visitors who you are.
+    </p>
+  </div>
+  
+  <div class="col-xs-6 col-xs-offset-0">
+     <%= image_tag 'profile_about.jpg', style: "width:70%; height:40%; margin:0% 10%" %>
+  </div>
 </div>
 
 
