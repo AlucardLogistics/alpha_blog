@@ -52,19 +52,19 @@ body {
   text-decoration: underline;
 }
 
-.btn-xlarge {
+.btn-signup {
   background-color: black;
   margin-top: 100px;
   margin-left: 0%;
 }
 
-.btn-xlarge:hover {
-  background-color: white;
+.btn-signup:hover {
+  background-color: #f46842;
   color: black;
 }
 
-.btn-xlarge:active:focus {
-  background-color: gray;
+.btn-signup:active:focus {
+  background-color: yellow;
   color: black;
 }
 
@@ -75,12 +75,12 @@ body {
 }
 
 .btn-login:hover {
-  background-color: white;
+  background-color: #f46842;
   color: black;
 }
 
 .btn-login:active:focus {
-  background-color: gray;
+  background-color: yellow;
   color: black;
 }
 
