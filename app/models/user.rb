@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   
+  #a gem that will encrypt the password into hash and store it in the db
+  has_secure_password
+  
   has_many :articles
   before_save { self.email = email.downcase }
   validates :username, presence: true, 
