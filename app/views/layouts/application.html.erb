@@ -14,6 +14,8 @@
     <%= yield %>
   </div>
   <%= render 'layouts/footer' %>
+  <!-- Shows the errors and info of the actions taken in the browser only in develop mode  -->
+  <%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>
