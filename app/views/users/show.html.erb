@@ -4,9 +4,9 @@
 <hr />
 
 <div class="row">
-  <div class="col-md-4 col-md-offset-4 center">
+  <div id="profile-pic" class="col-md-4 col-md-offset-4 center">
     <!--gravatar_for function will be defined in the app/helpers dir-->
-    <%= gravatar_for @user, size: 150 %>
+    <%= image_tag @user.photo.url(:medium), class: "img-circle" %>
   </div>
 </div>
 

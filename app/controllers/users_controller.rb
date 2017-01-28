@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   
   #defines the params required for the :user obj so it can be saved for the db
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :photo)
   end
 
 end
