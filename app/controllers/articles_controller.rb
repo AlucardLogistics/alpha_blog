@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   def create
     
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = User.find(4)
     if @article.save
       #render plain: params[:article].inspect
       #flash[:notice] to create an informational message for the user 
@@ -63,13 +63,13 @@ class ArticlesController < ApplicationController
     flash[:danger] = "Article was deleted."
   end
   
-  #private function the gives the params needed to identify the article we want to edit or create
+  
   private
     
     def set_article
       @article = Article.find(params[:id])
     end
-  
+    #private function the gives the params needed to identify the article we want to edit or create
     def article_params
      params.require(:article).permit(:title, :description)
     end
