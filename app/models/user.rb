@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   has_secure_password
   
   #a gem that will handle pictures for the profile pics
-  has_attached_file :photo, styles: { medium: "400x400>", thumb: "100x100>" }, default_url: "/images/missing.jpg"
+  has_attached_file :photo, styles: { medium: "400x400>", thumb: "100x100>" }, 
+                            default_url: "images/missing.jpg"
                             validates_attachment_content_type :photo, 
                             content_type: /\Aimage\/.*\z/
   
