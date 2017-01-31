@@ -2,6 +2,16 @@
   <h1>Listing all articles</h1>
 </div>
 <hr />
-<br />
+
+<div>
+  <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+</div>
+
+
 <%= render 'article', obj: @articles %>
+
+<div align="center">
+  <%= will_paginate @collection, renderer: BootstrapPagination::Rails  %>
+</div>
+
 <div class="footer-space">&nbsp;<br />&nbsp;<br />&nbsp;</div>

@@ -7,5 +7,6 @@
   <h4><%= @user.username %>'s articles</h4>
 </div>
 <hr />
-
-<%= render 'articles/article', obj: @user.articles %>
+<%= will_paginate @user_articles, renderer: BootstrapPagination::Rails %>
+<%= render 'articles/article', obj: @user_articles %>
+<%= will_paginate @user_articles, renderer: BootstrapPagination::Rails %>
