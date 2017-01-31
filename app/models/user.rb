@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   
   #a gem that will handle pictures for the profile pics
   has_attached_file :photo, styles: { medium: "400x400>", thumb: "100x100>" }, 
-                            default_url: "images/missing.jpg"
+                            #default_url: 'images/:styles/missingProf.jpg'
+                            default_url: ->(attachment) { ActionController::Base.helpers.asset_path('missingProf.png') }
                             validates_attachment_content_type :photo, 
                             content_type: /\Aimage\/.*\z/
   

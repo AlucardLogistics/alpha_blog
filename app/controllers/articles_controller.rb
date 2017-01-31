@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   def create
     
     @article = Article.new(article_params)
-    @article.user = User.find(4)
+    @article.user = User.first
     if @article.save
       #render plain: params[:article].inspect
       #flash[:notice] to create an informational message for the user 
