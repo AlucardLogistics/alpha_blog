@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   #for the page with all the articles
   def index
     #new variable for all the articles
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = Article.paginate(page: params[:page], per_page: 6)
   end
   
   #create new article
