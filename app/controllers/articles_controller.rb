@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
   
   #use the method :set_article from private only on those methods before they do anything else 
+  # they always execute in order
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  #this is to prevent someone to access edit articles if he's not logged in like from url
+  before_action :require_user, except: [:index, :show]
+  #prevent user to modify other users articles
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   
   #for the page with all the articles
   def index
@@ -23,7 +28,7 @@ class ArticlesController < ApplicationController
   def create
     
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       #render plain: params[:article].inspect
       #flash[:notice] to create an informational message for the user 
@@ -72,6 +77,14 @@ class ArticlesController < ApplicationController
     #private function the gives the params needed to identify the article we want to edit or create
     def article_params
      params.require(:article).permit(:title, :description)
+    end
+    
+    #prevent user to modify other users articles
+    def require_same_user
+      if current_user != @article.user
+        flash[:danger] = "You do not have authorization to do that"
+        redirect_to root_path
+      end
     end
   
 end
