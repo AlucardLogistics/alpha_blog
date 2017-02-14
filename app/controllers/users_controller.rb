@@ -18,8 +18,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     #if no errors while entering the :user fields 
     if @user.save
+      sessions[:user_id] = @user.id
       flash[:success] = "Welcome to the Pet Story Site #{@user.username}"
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
