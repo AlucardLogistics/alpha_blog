@@ -20,10 +20,6 @@ gem 'will_paginate-bootstrap'
 # gem 'therubyracer', platforms: :ruby
 #For handling pictures
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
-#gem to store pics of the app after uploading to heroku
-#heroku does not allow storing pics and after a while they delete it so 
-#we will use S3 Amazon as a way to keep files for the app
-gem 'aws-sdk', '~> 2.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
