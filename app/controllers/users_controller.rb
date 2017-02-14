@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   
   #adds a :set_user method to the edit update and show methods before anything else
   before_action :set_user, only: [:edit, :update, :show]
-  before_action :require_same_user, only: [:edit, :update]
-  
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
   
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     #if no errors while entering the :user fields 
     if @user.save
-      sessions[:user_id] = @user.id
+      session[:user_id] = @user.id
       flash[:success] = "Welcome to the Pet Story Site #{@user.username}"
       redirect_to user_path(@user)
     else
@@ -44,6 +44,13 @@ class UsersController < ApplicationController
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 4)
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:danger] = "User and all articles of this user have been deleted"
+    redirect_to users_path
+  end
+  
   #private functions just for this class
   private
   
@@ -57,10 +64,17 @@ class UsersController < ApplicationController
   end
   
   def require_same_user
-    if current_user != @user
+    if current_user != @user and !current_user.admin?
       flash[:danger] = "You don't have authorization to do that"
       redirect_to root_path
     end  
+  end
+  
+  def require_admin
+    if logged_in? and !current_user.admin?
+      flash[:danger] = "Only admin can do that"
+      redirect_to root_path
+    end
   end
 
 end

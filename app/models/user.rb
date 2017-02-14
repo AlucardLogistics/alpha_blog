@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
                             validates_attachment_content_type :photo, 
                             content_type: /\Aimage\/.*\z/
   
-  has_many :articles
+  #if a user gets deleted it will delete all its articles destroy dependency
+  has_many :articles, dependent: :destroy
   before_save { self.email = email.downcase }
   validates :username, presence: true, 
             uniqueness: {case_sensitive: false  }, 

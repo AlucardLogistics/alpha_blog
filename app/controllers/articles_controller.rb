@@ -81,7 +81,7 @@ class ArticlesController < ApplicationController
     
     #prevent user to modify other users articles
     def require_same_user
-      if current_user != @article.user
+      if current_user != @article.user and !current_user.admin?
         flash[:danger] = "You do not have authorization to do that"
         redirect_to root_path
       end
