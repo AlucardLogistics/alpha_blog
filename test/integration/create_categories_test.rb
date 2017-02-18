@@ -1,9 +1,18 @@
 require 'test_helper'
 
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
+    
+  #use create here because that way ruby creates and saves in the test db
+  def setup
+    @user = User.create(username: "Batz", email: "batz@gotham.com", password: "password", admin: true)
+  end
   
   #this test will check all steps of how a category is actually created
   test "get new category form and create category" do
+    #method that simulates a user signing in because 
+    #integration does not have access to the sessions from controller
+    #the function is created in *test/test_helper.rb
+    sign_in_as(@user, "password")
     get new_category_path
     assert_template 'categories/new'
     assert_difference 'Category.count', 1 do
@@ -14,6 +23,10 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
   end
   
   test "invalid category submission results in failiure" do
+    #method that simulates a user signing in because 
+    #integration does not have access to the sessions from controller
+    #the function is created in *test/test_helper.rb
+    sign_in_as(@user, "password")
     get new_category_path
     assert_template 'categories/new'
     assert_no_difference 'Category.count' do
