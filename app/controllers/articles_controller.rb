@@ -75,8 +75,9 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
     #private function the gives the params needed to identify the article we want to edit or create
+    #category_ids will add the relation between the categories selectd and article_id 
     def article_params
-     params.require(:article).permit(:title, :description)
+     params.require(:article).permit(:title, :description, category_ids: [])
     end
     
     #prevent user to modify other users articles
