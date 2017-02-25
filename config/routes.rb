@@ -16,9 +16,12 @@ Rails.application.routes.draw do
   
   #make homepage as root
   root 'pages#home'
-  
   get 'about', to: 'pages#about'
-  resources :articles
+  
+  #articles resources CRUD and each article will have a comment resource CRUD
+  resources :articles do
+    resources :comments
+  end
   
   get 'signup', to: 'users#new'
   resources :users, except: [:new]

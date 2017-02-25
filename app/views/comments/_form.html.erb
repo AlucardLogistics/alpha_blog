@@ -1,0 +1,7 @@
+<hr />
+<div align="right">
+  <%= form_for([@article, @article.comments.build]) do |f| %>
+    <%= f.text_field :content, style: "width: 250px;", placeholder: "Leave a comment...", autofocus: true %>
+    <%= f.submit "Post", class: "btn btn-xs btn-primary" %>
+  <% end %>
+</div>

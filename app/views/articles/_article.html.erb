@@ -12,6 +12,10 @@
                 <%= time_ago_in_words(article.created_at) %> ago,
                 last updated: <%= time_ago_in_words(article.updated_at) %> ago
               </small>
+              <small class="number-comments">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <%= link_to(pluralize(article.comments.count, "comment"), article_path(article)) %>
+              </small>
             </div>
         </div>
          <% if article.categories.any? %>

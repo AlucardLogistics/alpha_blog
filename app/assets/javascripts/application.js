@@ -15,3 +15,14 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+//This span is used to measure the size of the textarea
+//it should have the same font and text with the textarea and should be hidden
+
+$('textarea').on('keydown', function(e){
+    if(e.which == 13) {e.preventDefault();}
+}).on('input', function(){
+    $(this).height(1);
+    var totalHeight = $(this).prop('scrollHeight') - parseInt($(this).css('padding-top')) - parseInt($(this).css('padding-bottom'));
+    $(this).height(totalHeight);
+});

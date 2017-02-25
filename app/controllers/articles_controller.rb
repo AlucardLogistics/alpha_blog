@@ -56,13 +56,13 @@ class ArticlesController < ApplicationController
   #show the current article on the web app
   def show
     #@article = Article.find(params[:id])
+    @comments = Comment.where(article_id: @article).order("created_at DESC")
   end
   
   #deletes the current article
   def destroy
     #@article = Article.find(params[:id])
     @article.destroy
-    
     
     redirect_to articles_path
     flash[:danger] = "Article was deleted."

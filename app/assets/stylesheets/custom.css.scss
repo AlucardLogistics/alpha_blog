@@ -16,6 +16,25 @@ body {
   background-attachment: fixed;
 }
 
+textarea {
+  overflow: hidden;
+  width: 350px;
+}
+
+.time-format {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.comment-section {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.number-comments {
+  margin-right: 0px;
+}
+
 #logo {
   float: left;
   font-size: 1.7em;

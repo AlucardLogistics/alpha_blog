@@ -1,0 +1,16 @@
+<% @comments.each do |comment| %>
+  <hr />
+  <%= link_to comment.user.username, users_path(current_user) %>:
+  <br />
+  <%= comment.content %>
+  <br /><br />
+  <% if logged_in? && (current_user == comment.user || current_user.admin?) %>
+    <%= link_to "Edit", edit_article_comment_path(comment.article, comment), class: "btn btn-xs btn-primary" %>
+    <%= link_to "Delete", [comment.article, comment], method: :delete, class: "btn btn-xs btn-danger" %>
+  <% end %>
+  <div align="right" class="time-format">
+    <%= comment.created_at.strftime("%H:%M-%a-%m-%Y") %>
+  </div>  
+<% end %>
+
+<%= render 'comments/form' %>
