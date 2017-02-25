@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   
   before_action :find_article
+  before_action :login_to_comment, only: [:create, :update]
   before_action :find_comment, only: [:destroy, :edit, :update, :require_same_user_comments]
   before_action :require_same_user_comments, only: [:destroy, :edit, :update]
   
@@ -50,6 +51,13 @@ class CommentsController < ApplicationController
         flash[:danger] = "You do not have authorization to do that"
         redirect_to article_path(@article)
       end
+  end
+  
+  def login_to_comment
+    if current_user == nil
+      flash[:danger] = "You must be logged in to comment"
+      redirect_to article_path(@article)
+    end
   end
   
 end
