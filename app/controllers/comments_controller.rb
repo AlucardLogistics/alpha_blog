@@ -50,6 +50,6 @@ class CommentsController < ApplicationController
         flash[:danger] = "You do not have authorization to do that"
         redirect_to article_path(@article)
       end
-    end
+  end
   
 end

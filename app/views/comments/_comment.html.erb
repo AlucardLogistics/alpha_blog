@@ -1,6 +1,6 @@
 <% @comments.each do |comment| %>
   <hr />
-  <%= link_to comment.user.username, users_path(current_user) %>:
+  <strong><%= link_to comment.user.username, users_path(current_user) %></strong>:
   <br />
   <%= comment.content %>
   <br /><br />
