@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   
   before_action :find_article
-  before_action :login_to_comment, only: [:create, :update]
+  before_action :login_to_comment, only: [:create]
   before_action :find_comment, only: [:destroy, :edit, :update, :require_same_user_comments]
   before_action :require_same_user_comments, only: [:destroy, :edit, :update]
   
